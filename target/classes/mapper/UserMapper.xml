@@ -8,5 +8,7 @@
     <select id="findByUsername" resultType="User">
         select * from t_user where username=#{username}
     </select>
+<cache/>
+
 
 </mapper>

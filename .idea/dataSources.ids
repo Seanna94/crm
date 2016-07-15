@@ -78,7 +78,7 @@
       </column>
       <column id="20" parent="4" name="logintime">
         <comment>登录时间</comment>
-        <data-type>varchar(45)</data-type>
+        <data-type>timestamp(6)</data-type>
       </column>
       <column id="21" parent="4" name="loginip">
         <comment>登录IP</comment>

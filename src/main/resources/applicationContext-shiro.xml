@@ -18,7 +18,7 @@
             <value>
                 /static/**=anon
                 /admin/**=roles[管理员]
-                /**=authc                                                                     
+                /**=authc
             </value>
         </property>
     </bean>

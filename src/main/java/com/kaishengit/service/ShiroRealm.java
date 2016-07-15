@@ -53,11 +53,12 @@ public class ShiroRealm extends AuthorizingRealm {
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
         String username = token.getUsername();//获取用户表单中的账号
         User user = userMapper.findByUsername(username);//根据账号查找对应的对象
+
         if(user!=null){
             if(!user.getEnable()){
                 throw  new LockedAccountException("账号已被禁用");
             }
-            return new SimpleAuthenticationInfo(user,user. getPassword(),getName());
+            return new SimpleAuthenticationInfo(user,user.getPassword(),getName());
         }else{
             throw new UnknownAccountException("账号或密码错误");
         }

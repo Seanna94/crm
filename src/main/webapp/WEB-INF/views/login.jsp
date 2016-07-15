@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>KaishengCRM</title>
+    <title>SeannaCRM</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
@@ -26,17 +26,32 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="background-image: url(/static/dist/img/credit/1.jpg)">
 <div class="login-box">
     <div class="login-logo">
-        <a href="/"><b>Kaishen</b>CRM</a>
+        <a href="/"><b>Seanna</b>CRM</a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
-        <c:if test="${not empty  message}">
-            <div class="alert alert-danger">
-                ${message}
-            </div>
+        <c:if test="${not empty message}">
+            <c:choose>
+                <c:when test="${message.state=='success'}">
+                    <div class="alert alert-success">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                            ${message.message}
+                    </div>
+                </c:when>
+                <c:otherwise>
+                    <div class="alert alert-danger">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        ${message.message}
+                    </div>
+                </c:otherwise>
+            </c:choose>
         </c:if>
         <form action="/" method="post">
             <div class="form-group has-feedback">
@@ -62,7 +77,6 @@
                 <!-- /.col -->
             </div>
         </form>
-
 
 
         <a href="#">忘记密码</a><br>
